@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生日快乐</title>
+
+  <!-- 微信分享卡片 -->
+  <meta property="og:title" content="生日快乐">
+  <meta property="og:description" content="🎂 送你一个蛋糕，祝你永远甜美">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Mike-create-lily/birthday/main/assets/cake.jpg">
+  <meta property="og:url" content="https://mike-create-lily.github.io/birthday/">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #fff0f5, #e0f7fa);
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #ff4081;
+      margin-top: 30px;
+    }
+    p {
+      font-size: 1.2em;
+      color: #555;
+      margin-top: 10px;
+    }
+    img {
+      width: 250px;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* 花朵特效 */
+    .flower {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url('https://emoji.slack-edge.com/T02F7GKH4/flower/7fa9b1e1813f7f1d.png');
+      background-size: cover;
+      animation: fall 6s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* 流星 */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, transparent);
+      animation: meteor 3s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes meteor {
+      0% { transform: translate(0, 0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translate(-300px, 300px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="assets/cake.jpg" alt="生日蛋糕" />
+  <h1>生日快乐</h1>
+  <p>愿你每一天都如这蛋糕一样甜美 🍰</p>
+
+  <!-- 花朵生成脚本 -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(flower);
+    }
+  </script>
+
+  <!-- 流星脚本 -->
+  <script>
+    for (let i = 0; i < 5; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 30 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(star);
+    }
+  </script>
+
+</body>
+</html>
